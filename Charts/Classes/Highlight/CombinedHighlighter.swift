@@ -15,9 +15,9 @@
 import Foundation
 import CoreGraphics
 
-internal class CombinedHighlighter: ChartHighlighter
+public class CombinedHighlighter: ChartHighlighter
 {
-    internal init(chart: CombinedChartView)
+    public init(chart: CombinedChartView)
     {
         super.init(chart: chart)
     }
@@ -25,7 +25,7 @@ internal class CombinedHighlighter: ChartHighlighter
     /// Returns a list of SelectionDetail object corresponding to the given xIndex.
     /// - parameter xIndex:
     /// - returns:
-    internal override func getSelectionDetailsAtIndex(xIndex: Int) -> [ChartSelectionDetail]
+    public override func getSelectionDetailsAtIndex(xIndex: Int) -> [ChartSelectionDetail]
     {
         var vals = [ChartSelectionDetail]()
         

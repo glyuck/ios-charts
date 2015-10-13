@@ -17,7 +17,7 @@ import UIKit
 /// BarChart with horizontal bar orientation. In this implementation, x- and y-axis are switched.
 public class HorizontalBarChartView: BarChartView
 {
-    internal override func initialize()
+    public override func initialize()
     {
         super.initialize()
         
@@ -32,7 +32,7 @@ public class HorizontalBarChartView: BarChartView
         _highlighter = HorizontalBarChartHighlighter(chart: self)
     }
     
-    internal override func calculateOffsets()
+    public override func calculateOffsets()
     {
         var offsetLeft: CGFloat = 0.0,
         offsetRight: CGFloat = 0.0,
@@ -122,13 +122,13 @@ public class HorizontalBarChartView: BarChartView
         prepareValuePxMatrix()
     }
     
-    internal override func prepareValuePxMatrix()
+    public override func prepareValuePxMatrix()
     {
         _rightAxisTransformer.prepareMatrixValuePx(chartXMin: _rightAxis.axisMinimum, deltaX: CGFloat(_rightAxis.axisRange), deltaY: _deltaX, chartYMin: _chartXMin)
         _leftAxisTransformer.prepareMatrixValuePx(chartXMin: _leftAxis.axisMinimum, deltaX: CGFloat(_leftAxis.axisRange), deltaY: _deltaX, chartYMin: _chartXMin)
     }
 
-    internal override func calcModulus()
+    public override func calcModulus()
     {
         _xAxis.axisLabelModulus = Int(ceil((CGFloat(_data.xValCount) * _xAxis.labelHeight) / (_viewPortHandler.contentHeight * viewPortHandler.touchMatrix.d)))
         

@@ -16,9 +16,9 @@ import Foundation
 
 public class ChartSelectionDetail: NSObject
 {
-    private var _value = Double(0)
-    private var _dataSetIndex = Int(0)
-    private var _dataSet: ChartDataSet!
+    public var _value = Double(0)
+    public var _dataSetIndex = Int(0)
+    public var _dataSet: ChartDataSet!
     
     public override init()
     {

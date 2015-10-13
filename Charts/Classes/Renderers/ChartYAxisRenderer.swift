@@ -17,7 +17,7 @@ import UIKit
 
 public class ChartYAxisRenderer: ChartAxisRendererBase
 {
-    internal var _yAxis: ChartYAxis!
+    public var _yAxis: ChartYAxis!
     
     public init(viewPortHandler: ChartViewPortHandler, yAxis: ChartYAxis, transformer: ChartTransformer!)
     {
@@ -54,7 +54,7 @@ public class ChartYAxisRenderer: ChartAxisRendererBase
     /// Sets up the y-axis labels. Computes the desired number of labels between
     /// the two given extremes. Unlike the papareXLabels() method, this method
     /// needs to be called upon every refresh of the view.
-    internal func computeAxisValues(min min: Double, max: Double)
+    public func computeAxisValues(min min: Double, max: Double)
     {
         let yMin = min
         let yMax = max
@@ -192,7 +192,7 @@ public class ChartYAxisRenderer: ChartAxisRendererBase
         drawYLabels(context: context, fixedPosition: xPos, offset: yoffset - _yAxis.labelFont.lineHeight, textAlign: textAlign)
     }
     
-    private var _axisLineSegmentsBuffer = [CGPoint](count: 2, repeatedValue: CGPoint())
+    public var _axisLineSegmentsBuffer = [CGPoint](count: 2, repeatedValue: CGPoint())
     
     public override func renderAxisLine(context context: CGContext?)
     {
@@ -235,7 +235,7 @@ public class ChartYAxisRenderer: ChartAxisRendererBase
     }
     
     /// draws the y-labels on the specified x-position
-    internal func drawYLabels(context context: CGContext?, fixedPosition: CGFloat, offset: CGFloat, textAlign: NSTextAlignment)
+    public func drawYLabels(context context: CGContext?, fixedPosition: CGFloat, offset: CGFloat, textAlign: NSTextAlignment)
     {
         let labelFont = _yAxis.labelFont
         let labelTextColor = _yAxis.labelTextColor
@@ -264,7 +264,7 @@ public class ChartYAxisRenderer: ChartAxisRendererBase
         }
     }
     
-    private var _gridLineBuffer = [CGPoint](count: 2, repeatedValue: CGPoint())
+    public var _gridLineBuffer = [CGPoint](count: 2, repeatedValue: CGPoint())
     
     public override func renderGridLines(context context: CGContext?)
     {
@@ -307,7 +307,7 @@ public class ChartYAxisRenderer: ChartAxisRendererBase
         CGContextRestoreGState(context)
     }
     
-    private var _limitLineSegmentsBuffer = [CGPoint](count: 2, repeatedValue: CGPoint())
+    public var _limitLineSegmentsBuffer = [CGPoint](count: 2, repeatedValue: CGPoint())
     
     public override func renderLimitLines(context context: CGContext?)
     {

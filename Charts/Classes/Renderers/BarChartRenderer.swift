@@ -63,7 +63,7 @@ public class BarChartRenderer: ChartDataRendererBase
         }
     }
     
-    internal func drawDataSet(context context: CGContext?, dataSet: BarChartDataSet, index: Int)
+    public func drawDataSet(context context: CGContext?, dataSet: BarChartDataSet, index: Int)
     {
         CGContextSaveGState(context)
         
@@ -256,7 +256,7 @@ public class BarChartRenderer: ChartDataRendererBase
     }
     
     /// Prepares a bar for being highlighted.
-    internal func prepareBarHighlight(x x: CGFloat, y1: Double, y2: Double, barspacehalf: CGFloat, trans: ChartTransformer, inout rect: CGRect)
+    public func prepareBarHighlight(x x: CGFloat, y1: Double, y2: Double, barspacehalf: CGFloat, trans: ChartTransformer, inout rect: CGRect)
     {
         let barWidth: CGFloat = 0.5
         
@@ -448,7 +448,7 @@ public class BarChartRenderer: ChartDataRendererBase
     }
     
     /// Draws a value at the specified x and y position.
-    internal func drawValue(context context: CGContext?, value: String, xPos: CGFloat, yPos: CGFloat, font: UIFont, align: NSTextAlignment, color: UIColor)
+    public func drawValue(context context: CGContext?, value: String, xPos: CGFloat, yPos: CGFloat, font: UIFont, align: NSTextAlignment, color: UIColor)
     {
         ChartUtils.drawText(context: context, text: value, point: CGPoint(x: xPos, y: yPos), align: align, attributes: [NSFontAttributeName: font, NSForegroundColorAttributeName: color])
     }
@@ -458,7 +458,7 @@ public class BarChartRenderer: ChartDataRendererBase
         
     }
     
-    private var _highlightArrowPtsBuffer = [CGPoint](count: 3, repeatedValue: CGPoint())
+    public var _highlightArrowPtsBuffer = [CGPoint](count: 3, repeatedValue: CGPoint())
     
     public override func drawHighlighted(context context: CGContext?, indices: [ChartHighlight])
     {
@@ -575,7 +575,7 @@ public class BarChartRenderer: ChartDataRendererBase
         return trans.generateTransformedValuesBarChart(entries, dataSet: dataSetIndex, barData: delegate!.barChartRendererData(self)!, phaseY: _animator.phaseY)
     }
     
-    internal func passesCheck() -> Bool
+    public func passesCheck() -> Bool
     {
         let barData = delegate!.barChartRendererData(self)
         

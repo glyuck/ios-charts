@@ -17,7 +17,7 @@ import UIKit
 
 public class ChartXAxisRendererBarChart: ChartXAxisRenderer
 {
-    internal weak var _chart: BarChartView!
+    public weak var _chart: BarChartView!
     
     public init(viewPortHandler: ChartViewPortHandler, xAxis: ChartXAxis, transformer: ChartTransformer!, chart: BarChartView)
     {
@@ -27,7 +27,7 @@ public class ChartXAxisRendererBarChart: ChartXAxisRenderer
     }
     
     /// draws the x-labels on the specified y-position
-    internal override func drawLabels(context context: CGContext?, pos: CGFloat)
+    public override func drawLabels(context context: CGContext?, pos: CGFloat)
     {
         if (_chart.data === nil)
         {
@@ -100,8 +100,6 @@ public class ChartXAxisRendererBarChart: ChartXAxisRenderer
             }
         }
     }
-    
-    private var _gridLineSegmentsBuffer = [CGPoint](count: 2, repeatedValue: CGPoint())
     
     public override func renderGridLines(context context: CGContext?)
     {

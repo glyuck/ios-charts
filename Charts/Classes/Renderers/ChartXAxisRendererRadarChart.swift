@@ -17,7 +17,7 @@ import UIKit
 
 public class ChartXAxisRendererRadarChart: ChartXAxisRenderer
 {
-    private weak var _chart: RadarChartView!
+    public weak var _chart: RadarChartView!
     
     public init(viewPortHandler: ChartViewPortHandler, xAxis: ChartXAxis, chart: RadarChartView)
     {
@@ -61,7 +61,7 @@ public class ChartXAxisRendererRadarChart: ChartXAxisRenderer
         }
     }
     
-    internal func drawLabel(context context: CGContext?, label: String, xIndex: Int, x: CGFloat, y: CGFloat, align: NSTextAlignment, attributes: [String: NSObject])
+    public func drawLabel(context context: CGContext?, label: String, xIndex: Int, x: CGFloat, y: CGFloat, align: NSTextAlignment, attributes: [String: NSObject])
     {
         let formattedLabel = _xAxis.valueFormatter?.stringForXValue(xIndex, original: label, viewPortHandler: viewPortHandler) ?? label
         ChartUtils.drawText(context: context, text: formattedLabel, point: CGPoint(x: x, y: y), align: align, attributes: attributes)

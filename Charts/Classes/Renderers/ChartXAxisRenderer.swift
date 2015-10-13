@@ -17,7 +17,7 @@ import UIKit
 
 public class ChartXAxisRenderer: ChartAxisRendererBase
 {
-    internal var _xAxis: ChartXAxis!
+    public var _xAxis: ChartXAxis!
   
     public init(viewPortHandler: ChartViewPortHandler, xAxis: ChartXAxis, transformer: ChartTransformer!)
     {
@@ -76,7 +76,7 @@ public class ChartXAxisRenderer: ChartAxisRendererBase
         }
     }
     
-    private var _axisLineSegmentsBuffer = [CGPoint](count: 2, repeatedValue: CGPoint())
+    public var _axisLineSegmentsBuffer = [CGPoint](count: 2, repeatedValue: CGPoint())
     
     public override func renderAxisLine(context context: CGContext?)
     {
@@ -124,7 +124,7 @@ public class ChartXAxisRenderer: ChartAxisRendererBase
     }
     
     /// draws the x-labels on the specified y-position
-    internal func drawLabels(context context: CGContext?, pos: CGFloat)
+    public func drawLabels(context context: CGContext?, pos: CGFloat)
     {
         let paraStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
         paraStyle.alignment = .Center
@@ -185,13 +185,13 @@ public class ChartXAxisRenderer: ChartAxisRendererBase
         }
     }
     
-    internal func drawLabel(context context: CGContext?, label: String, xIndex: Int, x: CGFloat, y: CGFloat, align: NSTextAlignment, attributes: [String: NSObject], constrainedToSize: CGSize)
+    public func drawLabel(context context: CGContext?, label: String, xIndex: Int, x: CGFloat, y: CGFloat, align: NSTextAlignment, attributes: [String: NSObject], constrainedToSize: CGSize)
     {
         let formattedLabel = _xAxis.valueFormatter?.stringForXValue(xIndex, original: label, viewPortHandler: viewPortHandler) ?? label
         ChartUtils.drawMultilineText(context: context, text: formattedLabel, point: CGPoint(x: x, y: y), align: align, attributes: attributes, constrainedToSize: constrainedToSize)
     }
     
-    private var _gridLineSegmentsBuffer = [CGPoint](count: 2, repeatedValue: CGPoint())
+    public var _gridLineSegmentsBuffer = [CGPoint](count: 2, repeatedValue: CGPoint())
     
     public override func renderGridLines(context context: CGContext?)
     {
@@ -272,7 +272,7 @@ public class ChartXAxisRenderer: ChartAxisRendererBase
         CGContextRestoreGState(context)
     }
     
-    private var _limitLineSegmentsBuffer = [CGPoint](count: 2, repeatedValue: CGPoint())
+    public var _limitLineSegmentsBuffer = [CGPoint](count: 2, repeatedValue: CGPoint())
     
     public func renderLimitLineLine(context context: CGContext?, limitLine: ChartLimitLine, position: CGPoint)
     {

@@ -18,7 +18,7 @@ import CoreGraphics
 public class CombinedChartView: BarLineChartViewBase
 {
     /// the fill-formatter used for determining the position of the fill-line
-    internal var _fillFormatter: ChartFillFormatter!
+    public var _fillFormatter: ChartFillFormatter!
     
     /// enum that allows to specify the order in which the different data objects for the combined-chart are drawn
     @objc
@@ -44,7 +44,7 @@ public class CombinedChartView: BarLineChartViewBase
         renderer = CombinedChartRenderer(chart: self, animator: _animator, viewPortHandler: _viewPortHandler)
     }
     
-    override func calcMinMax()
+    public override func calcMinMax()
     {
         super.calcMinMax()
         

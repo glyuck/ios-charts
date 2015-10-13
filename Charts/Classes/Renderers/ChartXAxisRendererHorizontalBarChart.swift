@@ -65,7 +65,7 @@ public class ChartXAxisRendererHorizontalBarChart: ChartXAxisRendererBarChart
     }
 
     /// draws the x-labels on the specified y-position
-    internal func drawLabels(context context: CGContext?, pos: CGFloat, align: NSTextAlignment)
+    public func drawLabels(context context: CGContext?, pos: CGFloat, align: NSTextAlignment)
     {
         let labelFont = _xAxis.labelFont
         let labelTextColor = _xAxis.labelTextColor
@@ -103,13 +103,11 @@ public class ChartXAxisRendererHorizontalBarChart: ChartXAxisRendererBarChart
         }
     }
     
-    internal func drawLabel(context context: CGContext?, label: String, xIndex: Int, x: CGFloat, y: CGFloat, align: NSTextAlignment, attributes: [String: NSObject])
+    public func drawLabel(context context: CGContext?, label: String, xIndex: Int, x: CGFloat, y: CGFloat, align: NSTextAlignment, attributes: [String: NSObject])
     {
         let formattedLabel = _xAxis.valueFormatter?.stringForXValue(xIndex, original: label, viewPortHandler: viewPortHandler) ?? label
         ChartUtils.drawText(context: context, text: formattedLabel, point: CGPoint(x: x, y: y), align: align, attributes: attributes)
     }
-    
-    private var _gridLineSegmentsBuffer = [CGPoint](count: 2, repeatedValue: CGPoint())
     
     public override func renderGridLines(context context: CGContext?)
     {
@@ -158,8 +156,6 @@ public class ChartXAxisRendererHorizontalBarChart: ChartXAxisRendererBarChart
         CGContextRestoreGState(context)
     }
     
-    private var _axisLineSegmentsBuffer = [CGPoint](count: 2, repeatedValue: CGPoint())
-    
     public override func renderAxisLine(context context: CGContext?)
     {
         if (!_xAxis.isEnabled || !_xAxis.isDrawAxisLineEnabled)
@@ -204,8 +200,6 @@ public class ChartXAxisRendererHorizontalBarChart: ChartXAxisRendererBarChart
         
         CGContextRestoreGState(context)
     }
-    
-    private var _limitLineSegmentsBuffer = [CGPoint](count: 2, repeatedValue: CGPoint())
     
     public override func renderLimitLines(context context: CGContext?)
     {

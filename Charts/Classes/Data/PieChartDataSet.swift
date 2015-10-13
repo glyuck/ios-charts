@@ -18,7 +18,7 @@ import UIKit
 
 public class PieChartDataSet: ChartDataSet
 {
-    private var _sliceSpace = CGFloat(0.0)
+    public var _sliceSpace = CGFloat(0.0)
     
     /// indicates the selection distance of a pie slice
     public var selectionShift = CGFloat(18.0)

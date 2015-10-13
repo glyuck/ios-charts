@@ -17,7 +17,7 @@ import UIKit
 
 public class ChartYAxisRendererRadarChart: ChartYAxisRenderer
 {
-    private weak var _chart: RadarChartView!
+    public weak var _chart: RadarChartView!
     
     public init(viewPortHandler: ChartViewPortHandler, yAxis: ChartYAxis, chart: RadarChartView)
     {
@@ -31,7 +31,7 @@ public class ChartYAxisRendererRadarChart: ChartYAxisRenderer
         computeAxisValues(min: yMin, max: yMax)
     }
     
-    internal override func computeAxisValues(min yMin: Double, max yMax: Double)
+    public override func computeAxisValues(min yMin: Double, max yMax: Double)
     {
         let labelCount = _yAxis.labelCount
         let range = abs(yMax - yMin)

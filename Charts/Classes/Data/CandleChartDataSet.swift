@@ -25,7 +25,7 @@ public class CandleChartDataSet: LineScatterCandleChartDataSet
     /// the space between the candle entries
     /// 
     /// **default**: 0.1 (10%)
-    private var _bodySpace = CGFloat(0.1)
+    public var _bodySpace = CGFloat(0.1)
     
     /// the color of the shadow line
     public var shadowColor: UIColor?
@@ -55,7 +55,7 @@ public class CandleChartDataSet: LineScatterCandleChartDataSet
         super.init(yVals: yVals, label: label)
     }
     
-    internal override func calcMinMax(start start: Int, end: Int)
+    public override func calcMinMax(start start: Int, end: Int)
     {
         if (yVals.count == 0)
         {

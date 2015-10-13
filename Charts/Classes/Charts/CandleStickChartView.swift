@@ -17,7 +17,7 @@ import CoreGraphics
 /// Financial chart type that draws candle-sticks.
 public class CandleStickChartView: BarLineChartViewBase, CandleStickChartRendererDelegate
 {
-    internal override func initialize()
+    public override func initialize()
     {
         super.initialize()
         
@@ -25,7 +25,7 @@ public class CandleStickChartView: BarLineChartViewBase, CandleStickChartRendere
         _chartXMin = -0.5
     }
 
-    internal override func calcMinMax()
+    public override func calcMinMax()
     {
         super.calcMinMax()
 

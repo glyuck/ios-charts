@@ -37,7 +37,7 @@ public class ChartAxisBase: ChartComponentBase
     public var drawLabelsEnabled = true
     
     /// array of limitlines that can be set for the axis
-    private var _limitLines = [ChartLimitLine]()
+    public var _limitLines = [ChartLimitLine]()
     
     /// Are the LimitLines drawn behind the data or in front of the data?
     /// 

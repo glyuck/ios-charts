@@ -39,20 +39,20 @@ public class ChartViewBase: UIView, ChartAnimatorDelegate
     // MARK: - Properties
     
     /// custom formatter that is used instead of the auto-formatter if set
-    internal var _valueFormatter = NSNumberFormatter()
+    public var _valueFormatter = NSNumberFormatter()
     
     /// the default value formatter
-    internal var _defaultValueFormatter = NSNumberFormatter()
+    public var _defaultValueFormatter = NSNumberFormatter()
     
     /// object that holds all data that was originally set for the chart, before it was modified or any filtering algorithms had been applied
-    internal var _data: ChartData!
+    public var _data: ChartData!
     
     /// If set to true, chart continues to scroll after touch up
     public var dragDecelerationEnabled = true
     
     /// Deceleration friction coefficient in [0 ; 1] interval, higher values indicate that speed will decrease slowly, for example if it set to 0, it will stop immediately.
     /// 1 is an invalid value, and will be converted to 0.999 automatically.
-    private var _dragDecelerationFrictionCoef: CGFloat = 0.9
+    public var _dragDecelerationFrictionCoef: CGFloat = 0.9
     
     /// font object used for drawing the description text in the bottom right corner of the chart
     public var descriptionFont: UIFont? = UIFont(name: "HelveticaNeue", size: 9.0)
@@ -66,19 +66,19 @@ public class ChartViewBase: UIView, ChartAnimatorDelegate
     public var descriptionText = "Description"
     
     /// flag that indicates if the chart has been fed with data yet
-    internal var _dataNotSet = true
+    public var _dataNotSet = true
     
     /// if true, units are drawn next to the values in the chart
-    internal var _drawUnitInChart = false
+    public var _drawUnitInChart = false
     
     /// the number of x-values the chart displays
-    internal var _deltaX = CGFloat(1.0)
+    public var _deltaX = CGFloat(1.0)
     
-    internal var _chartXMin = Double(0.0)
-    internal var _chartXMax = Double(0.0)
+    public var _chartXMin = Double(0.0)
+    public var _chartXMax = Double(0.0)
     
     /// the legend object containing all data associated with the legend
-    internal var _legend: ChartLegend!
+    public var _legend: ChartLegend!
     
     /// delegate to receive chart events
     public weak var delegate: ChartViewDelegate?
@@ -89,24 +89,24 @@ public class ChartViewBase: UIView, ChartAnimatorDelegate
     /// text that is displayed when the chart is empty that describes why the chart is empty
     public var noDataTextDescription: String?
     
-    internal var _legendRenderer: ChartLegendRenderer!
+    public var _legendRenderer: ChartLegendRenderer!
     
     /// object responsible for rendering the data
     public var renderer: ChartDataRendererBase?
     
-    internal var _highlighter: ChartHighlighter?
+    public var _highlighter: ChartHighlighter?
     
     /// object that manages the bounds and drawing constraints of the chart
-    internal var _viewPortHandler: ChartViewPortHandler!
+    public var _viewPortHandler: ChartViewPortHandler!
     
     /// object responsible for animations
-    internal var _animator: ChartAnimator!
+    public var _animator: ChartAnimator!
     
     /// flag that indicates if offsets calculation has already been done or not
-    private var _offsetsCalculated = false
+    public var _offsetsCalculated = false
     
     /// array of Highlight objects that reference the highlighted slices in the chart
-    internal var _indicesToHighlight = [ChartHighlight]()
+    public var _indicesToHighlight = [ChartHighlight]()
     
     /// if set to true, the marker is drawn when a value is clicked
     public var drawMarkers = true
@@ -114,7 +114,7 @@ public class ChartViewBase: UIView, ChartAnimatorDelegate
     /// the view that represents the marker
     public var marker: ChartMarker?
     
-    private var _interceptTouchEvents = false
+    public var _interceptTouchEvents = false
     
     /// An extra offset to be appended to the viewport's top
     public var extraTopOffset: CGFloat = 0.0
@@ -157,7 +157,7 @@ public class ChartViewBase: UIView, ChartAnimatorDelegate
         self.removeObserver(self, forKeyPath: "frame")
     }
     
-    internal func initialize()
+    public func initialize()
     {
         _animator = ChartAnimator()
         _animator.delegate = self
@@ -255,19 +255,19 @@ public class ChartViewBase: UIView, ChartAnimatorDelegate
     }
     
     /// calculates the offsets of the chart to the border depending on the position of an eventual legend or depending on the length of the y-axis and x-axis labels and their position
-    internal func calculateOffsets()
+    public func calculateOffsets()
     {
         fatalError("calculateOffsets() cannot be called on ChartViewBase")
     }
     
     /// calcualtes the y-min and y-max value and the y-delta and x-delta value
-    internal func calcMinMax()
+    public func calcMinMax()
     {
         fatalError("calcMinMax() cannot be called on ChartViewBase")
     }
     
     /// calculates the required number of digits for the values that might be drawn in the chart (if enabled), and creates the default value formatter
-    internal func calculateFormatter(min min: Double, max: Double)
+    public func calculateFormatter(min min: Double, max: Double)
     {
         // check if a custom formatter is set or not
         var reference = Double(0.0)
@@ -321,7 +321,7 @@ public class ChartViewBase: UIView, ChartAnimatorDelegate
     }
     
     /// draws the description text in the bottom right corner of the chart
-    internal func drawDescription(context context: CGContext?)
+    public func drawDescription(context context: CGContext?)
     {
         if (descriptionText.lengthOfBytesUsingEncoding(NSUTF16StringEncoding) == 0)
         {
@@ -446,7 +446,7 @@ public class ChartViewBase: UIView, ChartAnimatorDelegate
     // MARK: - Markers
 
     /// draws all MarkerViews on the highlighted positions
-    internal func drawMarkers(context context: CGContext?)
+    public func drawMarkers(context context: CGContext?)
     {
         // if there is no marker view or drawing marker is disabled
         if (marker === nil || !drawMarkers || !valuesToHighlight())
@@ -814,8 +814,8 @@ public class ChartViewBase: UIView, ChartAnimatorDelegate
     }
     #endif
     
-    internal typealias VoidClosureType = () -> ()
-    internal var _sizeChangeEventActions = [VoidClosureType]()
+    public typealias VoidClosureType = () -> ()
+    public var _sizeChangeEventActions = [VoidClosureType]()
     
     public override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>)
     {

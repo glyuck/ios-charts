@@ -51,17 +51,17 @@ public class BubbleChartRenderer: ChartDataRendererBase
         }
     }
     
-    private func getShapeSize(entrySize entrySize: CGFloat, maxSize: CGFloat, reference: CGFloat) -> CGFloat
+    public func getShapeSize(entrySize entrySize: CGFloat, maxSize: CGFloat, reference: CGFloat) -> CGFloat
     {
         let factor: CGFloat = (maxSize == 0.0) ? 1.0 : sqrt(entrySize / maxSize)
         let shapeSize: CGFloat = reference * factor
         return shapeSize
     }
     
-    private var _pointBuffer = CGPoint()
-    private var _sizeBuffer = [CGPoint](count: 2, repeatedValue: CGPoint())
+    public var _pointBuffer = CGPoint()
+    public var _sizeBuffer = [CGPoint](count: 2, repeatedValue: CGPoint())
     
-    internal func drawDataSet(context context: CGContext?, dataSet: BubbleChartDataSet)
+    public func drawDataSet(context context: CGContext?, dataSet: BubbleChartDataSet)
     {
         let trans = delegate!.bubbleChartRenderer(self, transformerForAxis: dataSet.axisDependency)
         

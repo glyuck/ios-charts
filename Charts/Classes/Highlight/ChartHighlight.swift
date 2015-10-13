@@ -17,18 +17,18 @@ import Foundation
 public class ChartHighlight: NSObject
 {
     /// the x-index of the highlighted value
-    private var _xIndex = Int(0)
+    public var _xIndex = Int(0)
     
     /// the index of the dataset the highlighted value is in
-    private var _dataSetIndex = Int(0)
+    public var _dataSetIndex = Int(0)
     
     /// index which value of a stacked bar entry is highlighted
     /// 
     /// **default**: -1
-    private var _stackIndex = Int(-1)
+    public var _stackIndex = Int(-1)
     
     /// the range of the bar that is selected (only for stacked-barchart)
-    private var _range: ChartRange?
+    public var _range: ChartRange?
 
     public override init()
     {

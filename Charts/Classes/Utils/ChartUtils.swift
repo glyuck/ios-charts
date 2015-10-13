@@ -18,15 +18,15 @@ import Darwin
 
 public class ChartUtils
 {
-    internal struct Math
+    public struct Math
     {
-        internal static let FDEG2RAD = CGFloat(M_PI / 180.0)
-        internal static let FRAD2DEG = CGFloat(180.0 / M_PI)
-        internal static let DEG2RAD = M_PI / 180.0
-        internal static let RAD2DEG = 180.0 / M_PI
+        public static let FDEG2RAD = CGFloat(M_PI / 180.0)
+        public static let FRAD2DEG = CGFloat(180.0 / M_PI)
+        public static let DEG2RAD = M_PI / 180.0
+        public static let RAD2DEG = 180.0 / M_PI
     }
     
-    internal class func roundToNextSignificant(number number: Double) -> Double
+    public class func roundToNextSignificant(number number: Double) -> Double
     {
         if (isinf(number) || isnan(number) || number == 0)
         {
@@ -40,7 +40,7 @@ public class ChartUtils
         return shifted / magnitude
     }
     
-    internal class func decimals(number: Double) -> Int
+    public class func decimals(number: Double) -> Int
     {
         if (number == 0.0)
         {
@@ -51,7 +51,7 @@ public class ChartUtils
         return Int(ceil(-log10(i))) + 2
     }
     
-    internal class func nextUp(number: Double) -> Double
+    public class func nextUp(number: Double) -> Double
     {
         if (isinf(number) || isnan(number))
         {
@@ -64,7 +64,7 @@ public class ChartUtils
     }
 
     /// - returns: the index of the DataSet that contains the closest value on the y-axis. This will return -Integer.MAX_VALUE if failure.
-    internal class func closestDataSetIndex(valsAtIndex: [ChartSelectionDetail], value: Double, axis: ChartYAxis.AxisDependency?) -> Int
+    public class func closestDataSetIndex(valsAtIndex: [ChartSelectionDetail], value: Double, axis: ChartYAxis.AxisDependency?) -> Int
     {
         var index = -Int.max
         var distance = DBL_MAX
@@ -88,7 +88,7 @@ public class ChartUtils
     }
     
     /// - returns: the minimum distance from a touch-y-value (in pixels) to the closest y-value (in pixels) that is displayed in the chart.
-    internal class func getMinimumDistance(valsAtIndex: [ChartSelectionDetail], val: Double, axis: ChartYAxis.AxisDependency) -> Double
+    public class func getMinimumDistance(valsAtIndex: [ChartSelectionDetail], val: Double, axis: ChartYAxis.AxisDependency) -> Double
     {
         var distance = DBL_MAX
         
@@ -110,7 +110,7 @@ public class ChartUtils
     }
     
     /// Calculates the position around a center point, depending on the distance from the center, and the angle of the position around the center.
-    internal class func getPosition(center center: CGPoint, dist: CGFloat, angle: CGFloat) -> CGPoint
+    public class func getPosition(center center: CGPoint, dist: CGFloat, angle: CGFloat) -> CGPoint
     {
         return CGPoint(
             x: center.x + dist * cos(angle * Math.FDEG2RAD),
@@ -134,7 +134,7 @@ public class ChartUtils
         UIGraphicsPopContext()
     }
     
-    internal class func drawMultilineText(context context: CGContext?, text: String, knownTextSize: CGSize, point: CGPoint, align: NSTextAlignment, attributes: [String : AnyObject]?, constrainedToSize: CGSize)
+    public class func drawMultilineText(context context: CGContext?, text: String, knownTextSize: CGSize, point: CGPoint, align: NSTextAlignment, attributes: [String : AnyObject]?, constrainedToSize: CGSize)
     {
         var rect = CGRect(origin: CGPoint(), size: knownTextSize)
         rect.origin.x += point.x
@@ -154,14 +154,14 @@ public class ChartUtils
         UIGraphicsPopContext()
     }
     
-    internal class func drawMultilineText(context context: CGContext?, text: String, point: CGPoint, align: NSTextAlignment, attributes: [String : AnyObject]?, constrainedToSize: CGSize)
+    public class func drawMultilineText(context context: CGContext?, text: String, point: CGPoint, align: NSTextAlignment, attributes: [String : AnyObject]?, constrainedToSize: CGSize)
     {
         let rect = text.boundingRectWithSize(constrainedToSize, options: .UsesLineFragmentOrigin, attributes: attributes, context: nil)
         drawMultilineText(context: context, text: text, knownTextSize: rect.size, point: point, align: align, attributes: attributes, constrainedToSize: constrainedToSize)
     }
     
     /// - returns: an angle between 0.0 < 360.0 (not less than zero, less than 360)
-    internal class func normalizedAngleFromAngle(var angle: CGFloat) -> CGFloat
+    public class func normalizedAngleFromAngle(var angle: CGFloat) -> CGFloat
     {
         while (angle < 0.0)
         {
@@ -174,7 +174,7 @@ public class ChartUtils
     
     /// MARK: - Bridging functions
     
-    internal class func bridgedObjCGetUIColorArray (swift array: [UIColor?]) -> [NSObject]
+    public class func bridgedObjCGetUIColorArray (swift array: [UIColor?]) -> [NSObject]
     {
         var newArray = [NSObject]()
         for val in array
@@ -191,7 +191,7 @@ public class ChartUtils
         return newArray
     }
     
-    internal class func bridgedObjCGetUIColorArray (objc array: [NSObject]) -> [UIColor?]
+    public class func bridgedObjCGetUIColorArray (objc array: [NSObject]) -> [UIColor?]
     {
         var newArray = [UIColor?]()
         for object in array
@@ -201,7 +201,7 @@ public class ChartUtils
         return newArray
     }
     
-    internal class func bridgedObjCGetStringArray (swift array: [String?]) -> [NSObject]
+    public class func bridgedObjCGetStringArray (swift array: [String?]) -> [NSObject]
     {
         var newArray = [NSObject]()
         for val in array
@@ -218,7 +218,7 @@ public class ChartUtils
         return newArray
     }
     
-    internal class func bridgedObjCGetStringArray (objc array: [NSObject]) -> [String?]
+    public class func bridgedObjCGetStringArray (objc array: [NSObject]) -> [String?]
     {
         var newArray = [String?]()
         for object in array

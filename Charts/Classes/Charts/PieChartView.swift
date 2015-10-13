@@ -18,13 +18,13 @@ import UIKit
 public class PieChartView: PieRadarChartViewBase
 {
     /// rect object that represents the bounds of the piechart, needed for drawing the circle
-    private var _circleBox = CGRect()
+    public var _circleBox = CGRect()
     
     /// array that holds the width of each pie-slice in degrees
-    private var _drawAngles = [CGFloat]()
+    public var _drawAngles = [CGFloat]()
     
     /// array that holds the absolute angle in degrees of each slice
-    private var _absoluteAngles = [CGFloat]()
+    public var _absoluteAngles = [CGFloat]()
 
     public override init(frame: CGRect)
     {
@@ -36,7 +36,7 @@ public class PieChartView: PieRadarChartViewBase
         super.init(coder: aDecoder)
     }
     
-    internal override func initialize()
+    public override func initialize()
     {
         super.initialize()
         
@@ -72,7 +72,7 @@ public class PieChartView: PieRadarChartViewBase
         drawMarkers(context: context)
     }
     
-    internal override func calculateOffsets()
+    public override func calculateOffsets()
     {
         super.calculateOffsets()
         
@@ -99,7 +99,7 @@ public class PieChartView: PieRadarChartViewBase
         _circleBox.size.height = diameter - maxShift
     }
     
-    internal override func calcMinMax()
+    public override func calcMinMax()
     {
         super.calcMinMax()
         
@@ -135,7 +135,7 @@ public class PieChartView: PieRadarChartViewBase
     }
     
     /// calculates the needed angles for the chart slices
-    private func calcAngles()
+    public func calcAngles()
     {
         _drawAngles = [CGFloat]()
         _absoluteAngles = [CGFloat]()
@@ -193,7 +193,7 @@ public class PieChartView: PieRadarChartViewBase
     }
     
     /// calculates the needed angle for a given value
-    private func calcAngle(value: Double) -> CGFloat
+    public func calcAngle(value: Double) -> CGFloat
     {
         return CGFloat(value) / CGFloat(_data.yValueSum) * 360.0
     }
@@ -340,12 +340,12 @@ public class PieChartView: PieRadarChartViewBase
         }
     }
     
-    internal override var requiredLegendOffset: CGFloat
+    public override var requiredLegendOffset: CGFloat
     {
         return _legend.font.pointSize * 2.0
     }
     
-    internal override var requiredBaseOffset: CGFloat
+    public override var requiredBaseOffset: CGFloat
     {
         return 0.0
     }

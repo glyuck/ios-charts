@@ -17,26 +17,26 @@ import UIKit
 
 public class ChartData: NSObject
 {
-    internal var _yMax = Double(0.0)
-    internal var _yMin = Double(0.0)
-    internal var _leftAxisMax = Double(0.0)
-    internal var _leftAxisMin = Double(0.0)
-    internal var _rightAxisMax = Double(0.0)
-    internal var _rightAxisMin = Double(0.0)
-    private var _yValueSum = Double(0.0)
-    private var _yValCount = Int(0)
+    public var _yMax = Double(0.0)
+    public var _yMin = Double(0.0)
+    public var _leftAxisMax = Double(0.0)
+    public var _leftAxisMin = Double(0.0)
+    public var _rightAxisMax = Double(0.0)
+    public var _rightAxisMin = Double(0.0)
+    public var _yValueSum = Double(0.0)
+    public var _yValCount = Int(0)
     
     /// the last start value used for calcMinMax
-    internal var _lastStart: Int = 0
+    public var _lastStart: Int = 0
     
     /// the last end value used for calcMinMax
-    internal var _lastEnd: Int = 0
+    public var _lastEnd: Int = 0
     
     /// the average length (in characters) across all x-value strings
-    private var _xValAverageLength = Double(0.0)
+    public var _xValAverageLength = Double(0.0)
     
-    internal var _xVals: [String?]!
-    internal var _dataSets: [ChartDataSet]!
+    public var _xVals: [String?]!
+    public var _dataSets: [ChartDataSet]!
     
     public override init()
     {
@@ -86,7 +86,7 @@ public class ChartData: NSObject
         self.init(xVals: xVals, dataSets: dataSet === nil ? nil : [dataSet!])
     }
     
-    internal func initialize(dataSets: [ChartDataSet])
+    public func initialize(dataSets: [ChartDataSet])
     {
         checkIsLegal(dataSets)
         
@@ -98,7 +98,7 @@ public class ChartData: NSObject
     }
     
     // calculates the average length (in characters) across all x-value strings
-    internal func calcXValAverageLength()
+    public func calcXValAverageLength()
     {
         if (_xVals.count == 0)
         {
@@ -118,7 +118,7 @@ public class ChartData: NSObject
     
     // Checks if the combination of x-values array and DataSet array is legal or not.
     // :param: dataSets
-    internal func checkIsLegal(dataSets: [ChartDataSet]!)
+    public func checkIsLegal(dataSets: [ChartDataSet]!)
     {
         if (dataSets == nil)
         {
@@ -146,7 +146,7 @@ public class ChartData: NSObject
     }
     
     /// calc minimum and maximum y value over all datasets
-    internal func calcMinMax(start start: Int, end: Int)
+    public func calcMinMax(start start: Int, end: Int)
     {
         
         if (_dataSets == nil || _dataSets.count < 1)
@@ -239,7 +239,7 @@ public class ChartData: NSObject
     }
     
     /// calculates the sum of all y-values in all datasets
-    internal func calcYValueSum()
+    public func calcYValueSum()
     {
         _yValueSum = 0
         
@@ -255,7 +255,7 @@ public class ChartData: NSObject
     }
     
     /// Calculates the total number of y-values across all ChartDataSets the ChartData represents.
-    internal func calcYValueCount()
+    public func calcYValueCount()
     {
         _yValCount = 0
         
@@ -393,7 +393,7 @@ public class ChartData: NSObject
     /// - parameter type:
     /// - parameter ignorecase: if true, the search is not case-sensitive
     /// - returns: the index of the DataSet Object with the given label. Sensitive or not.
-    internal func getDataSetIndexByLabel(label: String, ignorecase: Bool) -> Int
+    public func getDataSetIndexByLabel(label: String, ignorecase: Bool) -> Int
     {
         if (ignorecase)
         {
@@ -430,7 +430,7 @@ public class ChartData: NSObject
     }
     
     /// - returns: the labels of all DataSets as a string array.
-    internal func dataSetLabels() -> [String]
+    public func dataSetLabels() -> [String]
     {
         var types = [String]()
         

@@ -18,16 +18,16 @@ import UIKit
 public class ChartDataSet: NSObject
 {
     public var colors = [UIColor]()
-    internal var _yVals: [ChartDataEntry]!
-    internal var _yMax = Double(0.0)
-    internal var _yMin = Double(0.0)
-    internal var _yValueSum = Double(0.0)
+    public var _yVals: [ChartDataEntry]!
+    public var _yMax = Double(0.0)
+    public var _yMin = Double(0.0)
+    public var _yValueSum = Double(0.0)
     
     /// the last start value used for calcMinMax
-    internal var _lastStart: Int = 0
+    public var _lastStart: Int = 0
     
     /// the last end value used for calcMinMax
-    internal var _lastEnd: Int = 0
+    public var _lastEnd: Int = 0
     
     public var label: String? = "DataSet"
     public var visible = true
@@ -87,7 +87,7 @@ public class ChartDataSet: NSObject
         calcYValueSum()
     }
     
-    internal func calcMinMax(start start : Int, end: Int)
+    public func calcMinMax(start start : Int, end: Int)
     {
         let yValCount = _yVals.count
         
@@ -137,7 +137,7 @@ public class ChartDataSet: NSObject
         }
     }
     
-    private func calcYValueSum()
+    public func calcYValueSum()
     {
         _yValueSum = 0
         

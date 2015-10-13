@@ -19,7 +19,7 @@ public class LineRadarChartDataSet: LineScatterCandleChartDataSet
 {
     public var fillColor = UIColor(red: 140.0/255.0, green: 234.0/255.0, blue: 255.0/255.0, alpha: 1.0)
     public var fillAlpha = CGFloat(0.33)
-    private var _lineWidth = CGFloat(1.0)
+    public var _lineWidth = CGFloat(1.0)
     public var drawFilledEnabled = false
     
     /// line width of the chart (min = 0.2, max = 10)

@@ -16,7 +16,7 @@ import CoreGraphics
 
 public class ChartDataRendererBase: ChartRendererBase
 {
-    internal var _animator: ChartAnimator!
+    public var _animator: ChartAnimator!
     
     public init(animator: ChartAnimator?, viewPortHandler: ChartViewPortHandler)
     {

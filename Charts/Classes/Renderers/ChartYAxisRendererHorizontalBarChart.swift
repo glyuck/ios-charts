@@ -102,8 +102,6 @@ public class ChartYAxisRendererHorizontalBarChart: ChartYAxisRenderer
         drawYLabels(context: context, fixedPosition: yPos, positions: positions, offset: _yAxis.yOffset)
     }
     
-    private var _axisLineSegmentsBuffer = [CGPoint](count: 2, repeatedValue: CGPoint())
-    
     public override func renderAxisLine(context context: CGContext?)
     {
         if (!_yAxis.isEnabled || !_yAxis.drawAxisLineEnabled)
@@ -145,7 +143,7 @@ public class ChartYAxisRendererHorizontalBarChart: ChartYAxisRenderer
     }
 
     /// draws the y-labels on the specified x-position
-    internal func drawYLabels(context context: CGContext?, fixedPosition: CGFloat, positions: [CGPoint], offset: CGFloat)
+    public func drawYLabels(context context: CGContext?, fixedPosition: CGFloat, positions: [CGPoint], offset: CGFloat)
     {
         let labelFont = _yAxis.labelFont
         let labelTextColor = _yAxis.labelTextColor
@@ -201,8 +199,6 @@ public class ChartYAxisRendererHorizontalBarChart: ChartYAxisRenderer
         
         CGContextRestoreGState(context)
     }
-    
-    private var _limitLineSegmentsBuffer = [CGPoint](count: 2, repeatedValue: CGPoint())
     
     public override func renderLimitLines(context context: CGContext?)
     {

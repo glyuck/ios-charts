@@ -52,11 +52,11 @@ public class CandleStickChartRenderer: LineScatterCandleRadarChartRenderer
         }
     }
     
-    private var _shadowPoints = [CGPoint](count: 2, repeatedValue: CGPoint())
-    private var _bodyRect = CGRect()
-    private var _lineSegments = [CGPoint](count: 2, repeatedValue: CGPoint())
+    public var _shadowPoints = [CGPoint](count: 2, repeatedValue: CGPoint())
+    public var _bodyRect = CGRect()
+    public var _lineSegments = [CGPoint](count: 2, repeatedValue: CGPoint())
     
-    internal func drawDataSet(context context: CGContext?, dataSet: CandleChartDataSet)
+    public func drawDataSet(context context: CGContext?, dataSet: CandleChartDataSet)
     {
         let trans = delegate!.candleStickChartRenderer(self, transformerForAxis: dataSet.axisDependency)
         
@@ -238,7 +238,7 @@ public class CandleStickChartRenderer: LineScatterCandleRadarChartRenderer
     {
     }
     
-    private var _highlightPointBuffer = CGPoint()
+    public var _highlightPointBuffer = CGPoint()
     
     public override func drawHighlighted(context context: CGContext?, indices: [ChartHighlight])
     {

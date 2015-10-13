@@ -18,43 +18,43 @@ import CoreGraphics
 public class ChartViewPortHandler: NSObject
 {
     /// matrix used for touch events
-    private var _touchMatrix = CGAffineTransformIdentity
+    public var _touchMatrix = CGAffineTransformIdentity
     
     /// this rectangle defines the area in which graph values can be drawn
-    private var _contentRect = CGRect()
+    public var _contentRect = CGRect()
     
-    private var _chartWidth = CGFloat(0.0)
-    private var _chartHeight = CGFloat(0.0)
+    public var _chartWidth = CGFloat(0.0)
+    public var _chartHeight = CGFloat(0.0)
     
     /// minimum scale value on the y-axis
-    private var _minScaleY = CGFloat(1.0)
+    public var _minScaleY = CGFloat(1.0)
     
     /// maximum scale value on the y-axis
-    private var _maxScaleY = CGFloat.max
+    public var _maxScaleY = CGFloat.max
     
     /// minimum scale value on the x-axis
-    private var _minScaleX = CGFloat(1.0)
+    public var _minScaleX = CGFloat(1.0)
     
     /// maximum scale value on the x-axis
-    private var _maxScaleX = CGFloat.max
+    public var _maxScaleX = CGFloat.max
     
     /// contains the current scale factor of the x-axis
-    private var _scaleX = CGFloat(1.0)
+    public var _scaleX = CGFloat(1.0)
     
     /// contains the current scale factor of the y-axis
-    private var _scaleY = CGFloat(1.0)
+    public var _scaleY = CGFloat(1.0)
     
     /// current translation (drag distance) on the x-axis
-    private var _transX = CGFloat(0.0)
+    public var _transX = CGFloat(0.0)
     
     /// current translation (drag distance) on the y-axis
-    private var _transY = CGFloat(0.0)
+    public var _transY = CGFloat(0.0)
     
     /// offset that allows the chart to be dragged over its bounds on the x-axis
-    private var _transOffsetX = CGFloat(0.0)
+    public var _transOffsetX = CGFloat(0.0)
     
     /// offset that allows the chart to be dragged over its bounds on the x-axis
-    private var _transOffsetY = CGFloat(0.0)
+    public var _transOffsetY = CGFloat(0.0)
     
     public override init()
     {
@@ -219,7 +219,7 @@ public class ChartViewPortHandler: NSObject
     }
     
     /// limits the maximum scale and X translation of the given matrix
-    private func limitTransAndScale(inout matrix matrix: CGAffineTransform, content: CGRect?)
+    public func limitTransAndScale(inout matrix matrix: CGAffineTransform, content: CGRect?)
     {
         // min scale-x is 1, max is the max CGFloat
         _scaleX = min(max(_minScaleX, matrix.a), _maxScaleX)

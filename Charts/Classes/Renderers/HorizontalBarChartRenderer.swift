@@ -22,7 +22,7 @@ public class HorizontalBarChartRenderer: BarChartRenderer
         super.init(delegate: delegate, animator: animator, viewPortHandler: viewPortHandler)
     }
     
-    internal override func drawDataSet(context context: CGContext?, dataSet: BarChartDataSet, index: Int)
+    public override func drawDataSet(context context: CGContext?, dataSet: BarChartDataSet, index: Int)
     {
         CGContextSaveGState(context)
         
@@ -215,7 +215,7 @@ public class HorizontalBarChartRenderer: BarChartRenderer
         CGContextRestoreGState(context)
     }
     
-    internal override func prepareBarHighlight(x x: CGFloat, y1: Double, y2: Double, barspacehalf: CGFloat, trans: ChartTransformer, inout rect: CGRect)
+    public override func prepareBarHighlight(x x: CGFloat, y1: Double, y2: Double, barspacehalf: CGFloat, trans: ChartTransformer, inout rect: CGRect)
     {
         let barWidth: CGFloat = 0.5
         
@@ -456,7 +456,7 @@ public class HorizontalBarChartRenderer: BarChartRenderer
         }
     }
     
-    internal override func passesCheck() -> Bool
+    public override func passesCheck() -> Bool
     {
         let barData = delegate!.barChartRendererData(self)
         

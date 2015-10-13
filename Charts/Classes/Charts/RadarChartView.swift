@@ -38,16 +38,16 @@ public class RadarChartView: PieRadarChartViewBase
     public var drawWeb = true
     
     /// modulus that determines how many labels and web-lines are skipped before the next is drawn
-    private var _skipWebLineCount = 1
+    public var _skipWebLineCount = 1
     
     /// the object reprsenting the y-axis labels
-    private var _yAxis: ChartYAxis!
+    public var _yAxis: ChartYAxis!
     
     /// the object representing the x-axis labels
-    private var _xAxis: ChartXAxis!
+    public var _xAxis: ChartXAxis!
     
-    internal var _yAxisRenderer: ChartYAxisRendererRadarChart!
-    internal var _xAxisRenderer: ChartXAxisRendererRadarChart!
+    public var _yAxisRenderer: ChartYAxisRendererRadarChart!
+    public var _xAxisRenderer: ChartXAxisRendererRadarChart!
     
     public override init(frame: CGRect)
     {
@@ -59,7 +59,7 @@ public class RadarChartView: PieRadarChartViewBase
         super.init(coder: aDecoder)
     }
     
-    internal override func initialize()
+    public override func initialize()
     {
         super.initialize()
         
@@ -73,7 +73,7 @@ public class RadarChartView: PieRadarChartViewBase
         _xAxisRenderer = ChartXAxisRendererRadarChart(viewPortHandler: _viewPortHandler, xAxis: _xAxis, chart: self)
     }
 
-    internal override func calcMinMax()
+    public override func calcMinMax()
     {
         super.calcMinMax()
         
@@ -256,12 +256,12 @@ public class RadarChartView: PieRadarChartViewBase
         }
     }
     
-    internal override var requiredLegendOffset: CGFloat
+    public override var requiredLegendOffset: CGFloat
     {
         return _legend.font.pointSize * 4.0
     }
 
-    internal override var requiredBaseOffset: CGFloat
+    public override var requiredBaseOffset: CGFloat
     {
         return _xAxis.isEnabled && _xAxis.isDrawLabelsEnabled ? _xAxis.labelWidth : 10.0
     }

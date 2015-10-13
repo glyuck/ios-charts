@@ -17,7 +17,7 @@ import UIKit
 
 public class PieChartRenderer: ChartDataRendererBase
 {
-    internal weak var _chart: PieChartView!
+    public weak var _chart: PieChartView!
     
     public var drawHoleEnabled = true
     public var holeTransparent = true
@@ -59,7 +59,7 @@ public class PieChartRenderer: ChartDataRendererBase
         }
     }
     
-    internal func drawDataSet(context context: CGContext?, dataSet: PieChartDataSet)
+    public func drawDataSet(context context: CGContext?, dataSet: PieChartDataSet)
     {
         var angle = _chart.rotationAngle
         
@@ -227,7 +227,7 @@ public class PieChartRenderer: ChartDataRendererBase
     }
     
     /// draws the hole in the center of the chart and the transparent circle / hole
-    private func drawHole(context context: CGContext?)
+    public func drawHole(context context: CGContext?)
     {
         if (_chart.drawHoleEnabled)
         {
@@ -260,7 +260,7 @@ public class PieChartRenderer: ChartDataRendererBase
     }
     
     /// draws the description text in the center of the pie chart makes most sense when center-hole is enabled
-    private func drawCenterText(context context: CGContext?)
+    public func drawCenterText(context context: CGContext?)
     {
         if (drawCenterTextEnabled && centerText != nil && centerText.characters.count > 0)
         {

@@ -18,15 +18,15 @@ import CoreGraphics
 public class BarChartView: BarLineChartViewBase, BarChartRendererDelegate
 {
     /// flag that enables or disables the highlighting arrow
-    private var _drawHighlightArrowEnabled = false
+    public var _drawHighlightArrowEnabled = false
     
     /// if set to true, all values are drawn above their bars, instead of below their top
-    private var _drawValueAboveBarEnabled = true
+    public var _drawValueAboveBarEnabled = true
 
     /// if set to true, a grey area is darawn behind each bar that indicates the maximum value
-    private var _drawBarShadowEnabled = false
+    public var _drawBarShadowEnabled = false
     
-    internal override func initialize()
+    public override func initialize()
     {
         super.initialize()
         
@@ -38,7 +38,7 @@ public class BarChartView: BarLineChartViewBase, BarChartRendererDelegate
         _chartXMin = -0.5
     }
     
-    internal override func calcMinMax()
+    public override func calcMinMax()
     {
         super.calcMinMax()
         

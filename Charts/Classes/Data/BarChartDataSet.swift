@@ -22,7 +22,7 @@ public class BarChartDataSet: BarLineScatterCandleBubbleChartDataSet
     
     /// the maximum number of bars that are stacked upon each other, this value
     /// is calculated from the Entries that are added to the DataSet
-    private var _stackSize = 1
+    public var _stackSize = 1
     
     /// the color used for drawing the bar-shadows. The bar shadows is a surface behind the bar that indicates the maximum value
     public var barShadowColor = UIColor(red: 215.0/255.0, green: 215.0/255.0, blue: 215.0/255.0, alpha: 1.0)
@@ -31,7 +31,7 @@ public class BarChartDataSet: BarLineScatterCandleBubbleChartDataSet
     public var highLightAlpha = CGFloat(120.0 / 255.0)
     
     /// the overall entry count, including counting each stack-value individually
-    private var _entryCountStacks = 0
+    public var _entryCountStacks = 0
     
     /// array of labels used to describe the different values of the stacked bars
     public var stackLabels: [String] = ["Stack"]
@@ -67,7 +67,7 @@ public class BarChartDataSet: BarLineScatterCandleBubbleChartDataSet
     
     /// Calculates the total number of entries this DataSet represents, including
     /// stacks. All values belonging to a stack are calculated separately.
-    private func calcEntryCountIncludingStacks(yVals: [BarChartDataEntry]!)
+    public func calcEntryCountIncludingStacks(yVals: [BarChartDataEntry]!)
     {
         _entryCountStacks = 0
         
@@ -87,7 +87,7 @@ public class BarChartDataSet: BarLineScatterCandleBubbleChartDataSet
     }
     
     /// calculates the maximum stacksize that occurs in the Entries array of this DataSet
-    private func calcStackSize(yVals: [BarChartDataEntry]!)
+    public func calcStackSize(yVals: [BarChartDataEntry]!)
     {
         for (var i = 0; i < yVals.count; i++)
         {
@@ -101,7 +101,7 @@ public class BarChartDataSet: BarLineScatterCandleBubbleChartDataSet
     }
     }
     
-    internal override func calcMinMax(start start : Int, end: Int)
+    public override func calcMinMax(start start : Int, end: Int)
     {
         let yValCount = _yVals.count
         

@@ -20,10 +20,10 @@ public class ChartRendererBase: NSObject
     public var viewPortHandler: ChartViewPortHandler!
     
     /// the minimum value on the x-axis that should be plotted
-    internal var _minX: Int = 0
+    public var _minX: Int = 0
     
     /// the maximum value on the x-axis that should be plotted
-    internal var _maxX: Int = 0
+    public var _maxX: Int = 0
     
     public override init()
     {
@@ -37,7 +37,7 @@ public class ChartRendererBase: NSObject
     }
 
     /// - returns: true if the specified value fits in between the provided min and max bounds, false if not.
-    internal func fitsBounds(val: Double, min: Double, max: Double) -> Bool
+    public func fitsBounds(val: Double, min: Double, max: Double) -> Bool
     {
         if (val < min || val > max)
         {

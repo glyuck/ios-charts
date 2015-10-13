@@ -15,12 +15,12 @@
 import Foundation
 import CoreGraphics
 
-internal class ChartHighlighter
+public class ChartHighlighter
 {
     /// instance of the data-provider
-    internal weak var _chart: BarLineChartViewBase?;
+    public weak var _chart: BarLineChartViewBase?;
     
-    internal init(chart: BarLineChartViewBase)
+    public init(chart: BarLineChartViewBase)
     {
         _chart = chart;
     }
@@ -29,7 +29,7 @@ internal class ChartHighlighter
     /// - parameter x:
     /// - parameter y:
     /// - returns:
-    internal func getHighlight(x x: Double, y: Double) -> ChartHighlight?
+    public func getHighlight(x x: Double, y: Double) -> ChartHighlight?
     {
         let xIndex = getXIndex(x)
         if (xIndex == -Int.max)
@@ -49,7 +49,7 @@ internal class ChartHighlighter
     /// Returns the corresponding x-index for a given touch-position in pixels.
     /// - parameter x:
     /// - returns:
-    internal func getXIndex(x: Double) -> Int
+    public func getXIndex(x: Double) -> Int
     {
         // create an array of the touch-point
         var pt = CGPoint(x: x, y: 0.0)
@@ -65,7 +65,7 @@ internal class ChartHighlighter
     /// - parameter x:
     /// - parameter y:
     /// - returns:
-    internal func getDataSetIndex(xIndex xIndex: Int, x: Double, y: Double) -> Int
+    public func getDataSetIndex(xIndex xIndex: Int, x: Double, y: Double) -> Int
     {
         let valsAtIndex = getSelectionDetailsAtIndex(xIndex)
         
@@ -82,7 +82,7 @@ internal class ChartHighlighter
     /// Returns a list of SelectionDetail object corresponding to the given xIndex.
     /// - parameter xIndex:
     /// - returns:
-    internal func getSelectionDetailsAtIndex(xIndex: Int) -> [ChartSelectionDetail]
+    public func getSelectionDetailsAtIndex(xIndex: Int) -> [ChartSelectionDetail]
     {
         var vals = [ChartSelectionDetail]()
         var pt = CGPoint()

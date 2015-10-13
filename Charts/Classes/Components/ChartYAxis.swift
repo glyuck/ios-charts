@@ -39,7 +39,7 @@ public class ChartYAxis: ChartAxisBase
     public var entryCount: Int { return entries.count; }
     
     /// the number of y-label entries the y-labels should have, default 6
-    private var _labelCount = Int(6)
+    public var _labelCount = Int(6)
     
     /// indicates if the top y-label entry is drawn or not
     public var drawTopYLabelEntryEnabled = true
@@ -60,7 +60,7 @@ public class ChartYAxis: ChartAxisBase
     public var valueFormatter: NSNumberFormatter?
     
     /// the formatter used to customly format the y-labels
-    internal var _defaultValueFormatter = NSNumberFormatter()
+    public var _defaultValueFormatter = NSNumberFormatter()
     
     /// A custom minimum value for this axis. 
     /// If set, this value will not be calculated automatically depending on the provided data. 
@@ -90,7 +90,7 @@ public class ChartYAxis: ChartAxisBase
     public var labelPosition = YAxisLabelPosition.OutsideChart
     
     /// the side this axis object represents
-    private var _axisDependency = AxisDependency.Left
+    public var _axisDependency = AxisDependency.Left
     
     /// the minimum width that the axis should take
     /// 

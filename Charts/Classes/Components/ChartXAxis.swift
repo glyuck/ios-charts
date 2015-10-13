@@ -43,7 +43,7 @@ public class ChartXAxis: ChartAxisBase
     /// Is axisLabelModulus a custom value or auto calculated? If false, then it's auto, if true, then custom.
     /// 
     /// **default**: false (automatic modulus)
-    private var _isAxisModulusCustom = false
+    public var _isAxisModulusCustom = false
 
     /// the modulus that indicates if a value at a specified index in an array(list) for the y-axis-labels is drawn or not. Draw when `(index % modulus) == 0`.
     /// Used only for Horizontal BarChart
@@ -53,7 +53,7 @@ public class ChartXAxis: ChartAxisBase
     public var avoidFirstLastClippingEnabled = false
     
     /// Custom formatter for adjusting x-value strings
-    private var _xAxisValueFormatter: ChartXAxisValueFormatter = ChartDefaultXAxisValueFormatter()
+    public var _xAxisValueFormatter: ChartXAxisValueFormatter = ChartDefaultXAxisValueFormatter()
     
     /// Custom XValueFormatter for the data object that allows custom-formatting of all x-values before rendering them.
     /// Provide null to reset back to the default formatting.

@@ -36,22 +36,22 @@ public class ChartAnimator: NSObject
     /// the phase that is animated and influences the drawn values on the y-axis
     public var phaseY: CGFloat = 1.0
     
-    private var _startTimeX: NSTimeInterval = 0.0
-    private var _startTimeY: NSTimeInterval = 0.0
-    private var _displayLink: CADisplayLink!
+    public var _startTimeX: NSTimeInterval = 0.0
+    public var _startTimeY: NSTimeInterval = 0.0
+    public var _displayLink: CADisplayLink!
     
-    private var _durationX: NSTimeInterval = 0.0
-    private var _durationY: NSTimeInterval = 0.0
+    public var _durationX: NSTimeInterval = 0.0
+    public var _durationY: NSTimeInterval = 0.0
     
-    private var _endTimeX: NSTimeInterval = 0.0
-    private var _endTimeY: NSTimeInterval = 0.0
-    private var _endTime: NSTimeInterval = 0.0
+    public var _endTimeX: NSTimeInterval = 0.0
+    public var _endTimeY: NSTimeInterval = 0.0
+    public var _endTime: NSTimeInterval = 0.0
     
-    private var _enabledX: Bool = false
-    private var _enabledY: Bool = false
+    public var _enabledX: Bool = false
+    public var _enabledY: Bool = false
     
-    private var _easingX: ChartEasingFunctionBlock?
-    private var _easingY: ChartEasingFunctionBlock?
+    public var _easingX: ChartEasingFunctionBlock?
+    public var _easingY: ChartEasingFunctionBlock?
     
     public override init()
     {
@@ -100,7 +100,7 @@ public class ChartAnimator: NSObject
         }
     }
     
-    private func updateAnimationPhases(currentTime: NSTimeInterval)
+    public func updateAnimationPhases(currentTime: NSTimeInterval)
     {
         if (_enabledX)
         {
@@ -142,7 +142,7 @@ public class ChartAnimator: NSObject
         }
     }
     
-    @objc private func animationLoop()
+    @objc public func animationLoop()
     {
         let currentTime: NSTimeInterval = CACurrentMediaTime()
         

@@ -59,9 +59,9 @@ public class ScatterChartRenderer: LineScatterCandleRadarChartRenderer
         }
     }
     
-    private var _lineSegments = [CGPoint](count: 2, repeatedValue: CGPoint())
+    public var _lineSegments = [CGPoint](count: 2, repeatedValue: CGPoint())
     
-    internal func drawDataSet(context context: CGContext?, dataSet: ScatterChartDataSet)
+    public func drawDataSet(context context: CGContext?, dataSet: ScatterChartDataSet)
     {
         let trans = delegate!.scatterChartRenderer(self, transformerForAxis: dataSet.axisDependency)
         
@@ -240,7 +240,7 @@ public class ScatterChartRenderer: LineScatterCandleRadarChartRenderer
         
     }
     
-    private var _highlightPointBuffer = CGPoint()
+    public var _highlightPointBuffer = CGPoint()
     
     public override func drawHighlighted(context context: CGContext?, indices: [ChartHighlight])
     {

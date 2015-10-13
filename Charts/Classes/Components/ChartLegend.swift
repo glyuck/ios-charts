@@ -56,8 +56,8 @@ public class ChartLegend: ChartComponentBase
     // the legend text array. a nil label will start a group.
     public var labels = [String?]()
     
-    internal var _extraColors = [UIColor?]()
-    internal var _extraLabels = [String?]()
+    public var _extraColors = [UIColor?]()
+    public var _extraLabels = [String?]()
     
     /// colors that will be appended to the end of the colors array after calculating the legend.
     public var extraColors: [UIColor?] { return _extraColors; }
@@ -68,7 +68,7 @@ public class ChartLegend: ChartComponentBase
     /// Are the legend labels/colors a custom value or auto calculated? If false, then it's auto, if true, then custom.
     /// 
     /// **default**: false (automatic legend)
-    private var _isLegendCustom = false
+    public var _isLegendCustom = false
 
     public var position = ChartLegendPosition.BelowChartLeft
     public var direction = ChartLegendDirection.LeftToRight

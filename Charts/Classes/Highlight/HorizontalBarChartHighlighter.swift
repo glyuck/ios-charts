@@ -15,9 +15,9 @@
 import Foundation
 import CoreGraphics
 
-internal class HorizontalBarChartHighlighter: BarChartHighlighter
+public class HorizontalBarChartHighlighter: BarChartHighlighter
 {
-    internal override func getHighlight(x x: Double, y: Double) -> ChartHighlight?
+    public override func getHighlight(x x: Double, y: Double) -> ChartHighlight?
     {
         let h = super.getHighlight(x: x, y: y)
         
@@ -46,7 +46,7 @@ internal class HorizontalBarChartHighlighter: BarChartHighlighter
         }
     }
     
-    internal override func getXIndex(x: Double) -> Int
+    public override func getXIndex(x: Double) -> Int
     {
         if let barChartData = _chart?.data as? BarChartData
         {
@@ -90,7 +90,7 @@ internal class HorizontalBarChartHighlighter: BarChartHighlighter
     /// Returns the base y-value to the corresponding x-touch value in pixels.
     /// - parameter y:
     /// - returns:
-    internal override func getBase(y: Double) -> Double
+    public override func getBase(y: Double) -> Double
     {
         if let barChartData = _chart?.data as? BarChartData
         {

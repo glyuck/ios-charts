@@ -18,12 +18,12 @@ import CoreGraphics
 public class ChartTransformer: NSObject
 {
     /// matrix to map the values to the screen pixels
-    internal var _matrixValueToPx = CGAffineTransformIdentity
+    public var _matrixValueToPx = CGAffineTransformIdentity
 
     /// matrix for handling the different offsets of the chart
-    internal var _matrixOffset = CGAffineTransformIdentity
+    public var _matrixOffset = CGAffineTransformIdentity
 
-    internal var _viewPortHandler: ChartViewPortHandler
+    public var _viewPortHandler: ChartViewPortHandler
 
     public init(viewPortHandler: ChartViewPortHandler)
     {

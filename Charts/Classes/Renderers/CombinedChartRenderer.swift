@@ -21,7 +21,7 @@ public class CombinedChartRenderer: ChartDataRendererBase,
     CandleStickChartRendererDelegate,
     BubbleChartRendererDelegate
 {
-    private weak var _chart: CombinedChartView!
+    public weak var _chart: CombinedChartView!
     
     /// flag that enables or disables the highlighting arrow
     public var drawHighlightArrowEnabled = false
@@ -32,9 +32,9 @@ public class CombinedChartRenderer: ChartDataRendererBase,
     /// if set to true, a grey area is darawn behind each bar that indicates the maximum value
     public var drawBarShadowEnabled = true
     
-    internal var _renderers = [ChartDataRendererBase]()
+    public var _renderers = [ChartDataRendererBase]()
     
-    internal var _drawOrder: [CombinedChartView.CombinedChartDrawOrder] = [.Bar, .Bubble, .Line, .Candle, .Scatter]
+    public var _drawOrder: [CombinedChartView.CombinedChartDrawOrder] = [.Bar, .Bubble, .Line, .Candle, .Scatter]
     
     public init(chart: CombinedChartView, animator: ChartAnimator, viewPortHandler: ChartViewPortHandler)
     {
@@ -46,7 +46,7 @@ public class CombinedChartRenderer: ChartDataRendererBase,
     }
     
     /// Creates the renderers needed for this combined-renderer in the required order. Also takes the DrawOrder into consideration.
-    internal func createRenderers()
+    public func createRenderers()
     {
         _renderers = [ChartDataRendererBase]()
 

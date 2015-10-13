@@ -17,9 +17,9 @@ import CoreGraphics
 /// Chart that draws lines, surfaces, circles, ...
 public class LineChartView: BarLineChartViewBase, LineChartRendererDelegate
 {
-    private var _fillFormatter: ChartFillFormatter!
+    public var _fillFormatter: ChartFillFormatter!
     
-    internal override func initialize()
+    public override func initialize()
     {
         super.initialize()
         
@@ -28,7 +28,7 @@ public class LineChartView: BarLineChartViewBase, LineChartRendererDelegate
         _fillFormatter = BarLineChartFillFormatter(chart: self)
     }
     
-    internal override func calcMinMax()
+    public override func calcMinMax()
     {
         super.calcMinMax()
         

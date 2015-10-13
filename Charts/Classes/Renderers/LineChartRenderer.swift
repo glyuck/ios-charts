@@ -60,24 +60,24 @@ public class LineChartRenderer: LineScatterCandleRadarChartRenderer
         }
     }
     
-    internal struct CGCPoint
+    public struct CGCPoint
     {
-        internal var x: CGFloat = 0.0
-        internal var y: CGFloat = 0.0
+        public var x: CGFloat = 0.0
+        public var y: CGFloat = 0.0
         
         ///  x-axis distance
-        internal var dx: CGFloat = 0.0
+        public var dx: CGFloat = 0.0
         ///  y-axis distance
-        internal var dy: CGFloat = 0.0
+        public var dy: CGFloat = 0.0
         
-        internal init(x: CGFloat, y: CGFloat)
+        public init(x: CGFloat, y: CGFloat)
         {
             self.x = x
             self.y = y
         }
     }
     
-    internal func drawDataSet(context context: CGContext?, dataSet: LineChartDataSet)
+    public func drawDataSet(context context: CGContext?, dataSet: LineChartDataSet)
     {
         let entries = dataSet.yVals
         
@@ -111,7 +111,7 @@ public class LineChartRenderer: LineScatterCandleRadarChartRenderer
         CGContextRestoreGState(context)
     }
     
-    internal func drawCubic(context context: CGContext?, dataSet: LineChartDataSet, entries: [ChartDataEntry])
+    public func drawCubic(context context: CGContext?, dataSet: LineChartDataSet, entries: [ChartDataEntry])
     {
         let trans = delegate?.lineChartRenderer(self, transformerForAxis: dataSet.axisDependency)
         
@@ -215,7 +215,7 @@ public class LineChartRenderer: LineScatterCandleRadarChartRenderer
         CGContextRestoreGState(context)
     }
     
-    internal func drawCubicFill(context context: CGContext?, dataSet: LineChartDataSet, spline: CGMutablePath, matrix: CGAffineTransform, from: Int, to: Int)
+    public func drawCubicFill(context context: CGContext?, dataSet: LineChartDataSet, spline: CGMutablePath, matrix: CGAffineTransform, from: Int, to: Int)
     {
         if to - from <= 1
         {
@@ -248,9 +248,9 @@ public class LineChartRenderer: LineScatterCandleRadarChartRenderer
         CGContextRestoreGState(context)
     }
     
-    private var _lineSegments = [CGPoint](count: 2, repeatedValue: CGPoint())
+    public var _lineSegments = [CGPoint](count: 2, repeatedValue: CGPoint())
     
-    internal func drawLinear(context context: CGContext?, dataSet: LineChartDataSet, entries: [ChartDataEntry])
+    public func drawLinear(context context: CGContext?, dataSet: LineChartDataSet, entries: [ChartDataEntry])
     {
         let trans = delegate!.lineChartRenderer(self, transformerForAxis: dataSet.axisDependency)
         let valueToPixelMatrix = trans.valueToPixelMatrix
@@ -356,7 +356,7 @@ public class LineChartRenderer: LineScatterCandleRadarChartRenderer
         }
     }
     
-    internal func drawLinearFill(context context: CGContext?, dataSet: LineChartDataSet, entries: [ChartDataEntry], minx: Int, maxx: Int, trans: ChartTransformer)
+    public func drawLinearFill(context context: CGContext?, dataSet: LineChartDataSet, entries: [ChartDataEntry], minx: Int, maxx: Int, trans: ChartTransformer)
     {
         CGContextSaveGState(context)
         
@@ -384,7 +384,7 @@ public class LineChartRenderer: LineScatterCandleRadarChartRenderer
     }
     
     /// Generates the path that is used for filled drawing.
-    private func generateFilledPath(entries: [ChartDataEntry], fillMin: CGFloat, from: Int, to: Int, var matrix: CGAffineTransform) -> CGPath
+    public func generateFilledPath(entries: [ChartDataEntry], fillMin: CGFloat, from: Int, to: Int, var matrix: CGAffineTransform) -> CGPath
     {
         let phaseX = _animator.phaseX
         let phaseY = _animator.phaseY
@@ -490,7 +490,7 @@ public class LineChartRenderer: LineScatterCandleRadarChartRenderer
         drawCircles(context: context)
     }
     
-    private func drawCircles(context context: CGContext?)
+    public func drawCircles(context context: CGContext?)
     {
         let phaseX = _animator.phaseX
         let phaseY = _animator.phaseY
@@ -573,7 +573,7 @@ public class LineChartRenderer: LineScatterCandleRadarChartRenderer
         CGContextRestoreGState(context)
     }
     
-    private var _highlightPointBuffer = CGPoint()
+    public var _highlightPointBuffer = CGPoint()
     
     public override func drawHighlighted(context context: CGContext?, indices: [ChartHighlight])
     {
